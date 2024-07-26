@@ -376,6 +376,7 @@ h1, h2, h3, h4, h5, h6 {
 font-family: 'Montserrat', sans-serif;
 font-size: 36px; 
 color: #000000; 
+margin-bottom: 10px; 
 }
 p, li {
 margin-bottom: 20px;
@@ -390,11 +391,62 @@ margin: 20px;
 width: 100%;
 height: auto;
 }
+
+.title-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px;
+}
+.title-container a {
+color: maroon; 
+text-decoration: none;
+font-weight: bold; 
+}
+#cv-link {
+float: right; 
+}
 </style>
-<p>I am passionate scholar holding a Bachelors of Arts in Politics,
+<div class="title-container">
+<h1>
+Damian Andrew Maart
+</h1>
+<p><span id="cv-link"></span></p>
+</div>
+<script>
+  // CV link text
+  const cvLinkText = "Download CV";
+  
+  // Create an array of characters
+  const cvLinkArray = cvLinkText.split("");
+  
+  // Get the span element
+  const cvLinkSpan = document.getElementById("cv-link");
+  
+  // Function to animate the link
+  function animateLink() {
+    cvLinkArray.forEach((char, index) => {
+      setTimeout(() => {
+        cvLinkSpan.innerHTML += char;
+      }, index * 100);
+    });
+    
+    // Add the link href after animation
+    setTimeout(() => {
+      cvLinkSpan.innerHTML = `<a href="Damian_Maart_-_.pdf">${cvLinkText}</a>`;
+    }, cvLinkArray.length * 100);
+  }
+  
+  // Call the animateLink function
+  animateLink();
+</script>
+<div id="about-me" class="section level2">
+<h2>About me</h2>
+<p>I am a passionate scholar holding a Bachelors of Arts in Politics,
 Philosophy, and Economics from the University of South Africa.
 Currently, I am pursuing a post-graduate honours degree at the
 University of Cape Town.</p>
+</div>
 <div id="education" class="section level2">
 <h2>Education</h2>
 <ul>
